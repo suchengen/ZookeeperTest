@@ -28,6 +28,7 @@ public class ChangedActiveKeyValueStore extends ConnectionWatcher{
                     zk.create(path, value.getBytes(CHARSET), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
                 } else {
                     zk.setData(path, value.getBytes(CHARSET), stat.getVersion());
+                    System.out.println("set data: " + value);
                 }
             } catch (KeeperException.SessionExpiredException e) {
                 throw e;
