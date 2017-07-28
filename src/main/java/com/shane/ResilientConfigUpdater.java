@@ -18,8 +18,6 @@ public class ResilientConfigUpdater extends ConnectionWatcher {
     public ResilientConfigUpdater(String hosts) throws IOException, InterruptedException {
         store = new ChangedActiveKeyValueStore();
         store.connect(hosts);
-
-
     }
 
     public void run() throws InterruptedException, KeeperException {
