@@ -12,6 +12,8 @@ import java.io.IOException;
  */
 public class App
 {
+    public final static String HOST = "192.168.3.193:2181";
+
     public static void main(String[] args )
     {
     }

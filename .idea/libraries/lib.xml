@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../zkclient/lib/slf4j-log4j12-1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../zkclient/lib/objenesis-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../zkclient/lib/assertj-core-2.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../zkclient/lib/slf4j-api-1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../zkclient/lib/log4j-1.2.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../zkclient/lib/zookeeper-3.4.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../zkclient/lib/commons-io-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../zkclient/lib/junit-4.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../zkclient/lib/hamcrest-core-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../zkclient/lib/mockito-core-1.8.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,6 +1,5 @@
 package com.shane;
 
-import javafx.fxml.LoadException;
 import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
 
@@ -31,6 +30,7 @@ public class DistributedLock implements Lock, Watcher {
         this.lockName = lockName;
         try {
             zooKeeper = new ZooKeeper(config, sessionTimeout, this);
+
             Stat stat = zooKeeper.exists(root, false);
             if (null == stat) {
                 zooKeeper.create(root, new byte[0], ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
@@ -73,7 +73,7 @@ public class DistributedLock implements Lock, Watcher {
             String splitStr = "_lock_";
             if (lockName.contains(splitStr)) throw new LockException("lockName can not contains \\u000B");
             myZnode = zooKeeper.create(root + "/" + lockName + splitStr, new byte[0],
-                    ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+                    ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
             System.out.println(myZnode + " is created");
             List<String> subNodes = zooKeeper.getChildren(root, false);
             List<String> lockObjNodes = new ArrayList<String>();
@@ -129,6 +129,7 @@ public class DistributedLock implements Lock, Watcher {
 
     public void process(WatchedEvent event) {
         if (null != countDownLatch) {
+            System.out.println("progress: " + event.getType().toString());
             countDownLatch.countDown();
         }
     }
